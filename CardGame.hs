@@ -14,6 +14,10 @@ data Player = Player { name :: String, hand :: Hand }
 
 data Game = Game { deck :: Deck, players :: [Player] }
 
-type Deal = Deck -> (Deck, Card)
+type ShuffledDeck = [Card]
+
+type Shuffle = Deck -> ShuffledDeck
+
+type Deal = ShuffledDeck -> (ShuffledDeck, Card)
 
 type PickupCard = (Hand, Card) -> Hand
